@@ -1,10 +1,7 @@
 # PL0Compiler
 A compiler that reads a program written in PL/0 and generates code for the Virtual Machine.
 
-Lezette Leuterio and Hannah Main
-
-
-This program attempts to create a Recursive Descent Parser and an Intermediate Code Generator for tiny PL/0. As well as a compiler driver to combine all of the compiler parts into one single program.
+This program implements a Recursive Descent Parser and an Intermediate Code Generator for tiny PL/0. As well as a compiler driver to combine all of the compiler parts into one single program.
 
 
 Example commands:
