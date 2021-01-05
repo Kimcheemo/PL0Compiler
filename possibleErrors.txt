@@ -1,0 +1,385 @@
+﻿Possible errors
+
+Input to scanner 1:
+
+	Source Program:
+	const = 4;
+	var x, y;
+	begin
+	  x := y + 56;
+	end.
+
+	Parser output 1:
+	Error: const must be followed by an identifier.
+
+
+Input to scanner 2:
+
+	Source Program:
+	const num 4;
+	var x, y;
+	begin
+		x := y + 56;
+	end.
+
+	Parser output 2:
+	Error: identifier must be followed by =.
+
+
+Input to scanner 3:
+
+	Source Program:
+	const num = ;
+	var x, y;
+	begin
+	  x := y + 56;
+	end.
+
+	Parser output 3:
+	Error: = must be followed by a number.
+
+
+Input to scanner 4:
+
+	Source Program:
+	const num = 4
+	var x, y;
+	begin
+	  x := y + 56;
+	end.
+
+	Parser output 4:
+	Error: semicolon or comma is missing.
+
+
+Input to scanner 5:
+
+	Source Program:
+	var;
+	begin
+	  x := y + 56;
+	end.
+
+	Parser output 5:
+	Error: var must be followed by an identifier.
+
+
+Input to scanner 6:
+
+	Source Program:
+	/* Recursive example */
+	var f, n;
+	procedure;
+	    var ans1;
+	    begin
+	        ans1:=n;
+	        n:= n-1;
+	    if n = 0 then f := 1;
+	    if n > 0 then call fact;
+	    f:=f*ans1;
+	    end;
+
+	begin
+	    n:=3;
+	    call fact;
+	    write f
+	end.
+
+	Parser output 6:
+	Error: procedure must be followed by an identifier.
+
+
+Input to scanner 7:
+
+	Source Program:
+	var x;
+	begin
+		x := y + 56;
+	end.
+
+	Parser output 7:
+	Error: undeclared identifier.
+
+
+Input to scanner 8:
+
+	Source Program:
+	var x, y;
+	begin
+		x = y + 56;
+	end.
+
+	Parser output 8:
+	Error: used = instead of :=
+
+
+Input to scanner 9:
+
+	var x, y;
+	begin
+	  x := y + 56;
+	.
+
+	Parser output 9:
+	Error: missing 'end' symbol.
+
+
+Input to scanner 10:
+
+	Source Program:
+	const a = 7;
+	var b;
+	begin
+		read b;
+		if b < 0
+	  write b
+	end.
+
+	Parser output 10:
+	Error: 'then' expected.
+
+
+Input to scanner 11:
+
+	Source Program:
+	var n, i, square;
+	begin
+	    read n;
+	    i := 1;
+	    while i <= n
+	        begin
+	            square := i * i;
+	            write square;
+	            i := i + 1;
+	        end;
+	end.
+
+	Parser output 11:
+	Error: 'do' expected.
+
+
+Input to scanner 12:
+
+	Source Program:
+		const a = 7;
+		var b;
+		begin
+		    read;
+		    if b < 0 then write b;
+		end.
+
+	Parser/codegen output 12:
+	Error: undeclared identifier.
+
+
+Input to scanner 13:
+
+	Source Program:
+	const a = 7;
+	var b;
+	begin
+	    read;
+	    if b < 0 then write;
+	end.
+
+	Parser output 13:
+	Error: undeclared identifier.
+
+
+Input to scanner 14:
+
+	Source Program:
+	const a = 7;
+	var b;
+	begin
+	    read b;
+	    if b  0 then write;
+	end.
+
+	Parser output 14:
+	Error: relational operator expected.
+
+
+Input to scanner 15:
+
+	Source Program:
+	var x, y;
+	begin
+		x := (y + 56 * 2;
+	end.
+
+
+	Parser output 15:
+	Error: missing right parenthesis.
+
+
+Input to scanner 16:
+
+	Source Program:
+	var 1x, y;
+	begin
+	        x := y + 56;
+	end.
+
+	Parser output 16:
+	Error: variable can not start with a number.
+
+
+Input to scanner 17:
+
+	Source Program:
+	var x, nametoooolong;
+	begin
+		x := nametoooolong + 56;
+	end.
+
+	Parser output 17:
+	Error: identifier too long. Max of 11 characters.
+
+
+Input to scanner 18:
+
+	Source Program:
+	var x, y;
+	begin
+		x := y % 56;
+	end.
+
+	Parser output 18:
+	Error: invalid symbol.
+
+
+Input to scanner 19:
+
+	Source Program:
+	const x = 5;
+	var x, y;
+	begin
+	    x := y + 56;
+	end.
+
+	Parser output 19:
+	Error: the identifier is already in the symbol table.
+
+
+Input to scanner 20:
+
+	Source Program:
+	const z = 123456;
+	var x, y;
+	begin
+	    x := y + 56;
+	end.
+
+	Parser output 20:
+	Error: Number is too large. Max of 5 digits.
+
+
+Input to scanner 21:
+
+	Source Program:
+	var x, y;
+	begin
+  	x := y + 56;
+	end
+
+	Parser output 21:
+	Error: Period expected.
+
+
+Input to scanner 22:
+
+	Source Program:
+	/* Recursive example */
+	var f, n;
+	procedure fact =
+	    var ans1;
+	    begin
+	        ans1:=n;
+	        n:= n-1;
+	    if n = 0 then f := 1;
+	    if n > 0 then call fact;
+	    f:=f*ans1;
+	    end;
+
+	begin
+	    n:=3;
+	    call fact;
+	    write f
+	end.
+
+	Parser output 22:
+	Error: incorrect symbol after procedure declaration.
+
+
+Input to scanner 23:
+
+	Source Program:
+	/* Recursive example */
+	var f, n;
+	procedure fact;
+	    var ans1;
+	    begin
+	        ans1:=n;
+	        n:= n-1;
+	    if n = 0 then f := 1;
+	    if n > 0 then call fact;
+	    f:=f*ans1;
+	    end;
+
+	begin
+	    n:=3;
+	    call;
+	    write f
+	end.
+
+	Parser output 23:
+	Error: call must be followed by an identifier.
+
+
+Input to scanner 24:
+
+	var x  y;
+	begin
+	  	x := y + 56;
+	end.
+
+	Parser output 24:
+	Error: semicolon or comma is missing.
+
+
+Input to scanner 25:
+
+	Source Program:
+	/* Recursive example */
+	var f, n;
+	procedure fact;
+	    var ans1;
+	    begin
+	        ans1:=n;
+	        n:= n-1
+	    if n = 0 then f := 1;
+	    if n > 0 then call fact;
+	    f:=f*ans1;
+	    end;
+
+	begin
+	    n:=3;
+	    call fact;
+	    write f
+	end.
+
+	Parser output 25:
+	Error: semicolon between statements missing.
+
+
+Input to scanner 26:
+
+	Source Program:
+	var x, y;
+	begin
+	  x := (y ++ 56);
+	end.
+
+	Parser output 26:
+	Error: incorrect symbol.
